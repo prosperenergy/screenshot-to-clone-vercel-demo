@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Gateway – Vercel</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./main.ts"></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a href="#" class="brand" aria-label="Vercel">
+          <svg viewBox="0 0 24 22" aria-hidden="true" class="brand__mark">
+            <path d="M12 1L24 21H0L12 1Z" fill="currentColor" />
+          </svg>
+          <span class="brand__name">Vercel</span>
+        </a>
+
+        <nav class="primary-nav" aria-label="Primary">
+          <ul>
+            <li>
+              <button class="nav-link nav-link--pill" type="button" aria-expanded="false" data-dropdown>
+                Products
+                <svg viewBox="0 0 16 16" class="caret" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </li>
+            <li>
+              <button class="nav-link" type="button" aria-expanded="false" data-dropdown>
+                Resources
+                <svg viewBox="0 0 16 16" class="caret" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </li>
+            <li>
+              <button class="nav-link" type="button" aria-expanded="false" data-dropdown>
+                Solutions
+                <svg viewBox="0 0 16 16" class="caret" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+              </button>
+            </li>
+            <li><a class="nav-link" href="#">Enterprise</a></li>
+            <li><a class="nav-link" href="#">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a class="btn btn--ghost btn--ai" href="#">
+            <span class="ai-dot" aria-hidden="true"></span>
+            Ask AI
+          </a>
+          <a class="btn btn--ghost" href="#">Log In</a>
+          <a class="btn btn--primary" href="#">Sign Up</a>
+        </div>
+
+        <button class="hamburger" aria-label="Open menu" type="button" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        <nav aria-label="Mobile primary">
+          <ul class="mobile-menu__nav">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Solutions</a></li>
+            <li><a href="#">Enterprise</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu__actions">
+          <a class="btn btn--ghost-outline btn--block" href="#">
+            <span class="ai-dot" aria-hidden="true"></span>
+            Ask AI
+          </a>
+          <a class="btn btn--ghost-outline btn--block" href="#">Log In</a>
+          <a class="btn btn--primary btn--block" href="#">Sign Up</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="frame">
+          <div class="frame__corner frame__corner--tl"></div>
+          <div class="frame__corner frame__corner--tr"></div>
+          <div class="frame__corner frame__corner--bl"></div>
+          <div class="frame__corner frame__corner--br"></div>
+
+          <div class="hero__tabs" role="tablist">
+            <button class="tab is-active" role="tab" aria-selected="true">Overview</button>
+            <button class="tab" role="tab" aria-selected="false">Models</button>
+            <button class="tab" role="tab" aria-selected="false">Leaderboards</button>
+            <button class="tab" role="tab" aria-selected="false">Docs</button>
+          </div>
+
+          <div class="hero__grid">
+            <div class="hero__copy">
+              <h1>The AI Gateway For<br />Developers</h1>
+              <p>Text, image, and video. Route to hundreds of AI models through a centralized interface.</p>
+              <div class="hero__cta">
+                <a class="btn btn--primary btn--key" href="#">
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 2a3.5 3.5 0 0 1 3.36 4.5l1.59 1.59a.5.5 0 0 1 .15.35V10a.5.5 0 0 1-.5.5h-1.5V12a.5.5 0 0 1-.5.5h-1.5V14a.5.5 0 0 1-.5.5H8.85a.5.5 0 0 1-.35-.15l-.85-.85a3.5 3.5 0 1 1 2.85-11.5z M10.5 6.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="currentColor"/></svg>
+                  Get an API Key
+                </a>
+                <a class="btn btn--ghost-outline" href="#">Read the Docs</a>
+              </div>
+            </div>
+
+            <div class="hero__code">
+              <div class="code-card">
+                <div class="code-card__head">
+                  <div class="code-card__tabs">
+                    <button class="code-tab is-active" data-tab="ai">AI SDK</button>
+                    <button class="code-tab" data-tab="py">Python</button>
+                    <button class="code-tab" data-tab="http">OpenAI HTTP</button>
+                  </div>
+                  <button class="icon-btn" aria-label="Copy code">
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="3" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="5.5" y="5.5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+                  </button>
+                </div>
+                <pre class="code-body" data-pane="ai"><code><span class="ln"> 1</span><span class="kw">import</span> { streamText } <span class="kw">from</span> <span class="st">'ai'</span>
+<span class="ln"> 2</span>
+<span class="ln"> 3</span><span class="kw">const</span> result = <span class="fn">streamText</span>({
+<span class="ln highlight"> 4</span>  model: <span class="st">'openai/gpt-5.5'</span>,
+<span class="ln"> 5</span>  prompt: <span class="st">'Why is the sky blue?'</span>
+<span class="ln"> 6</span>})</code></pre>
+                <pre class="code-body is-hidden" data-pane="py"><code><span class="ln"> 1</span><span class="kw">from</span> openai <span class="kw">import</span> OpenAI
+<span class="ln"> 2</span>
+<span class="ln"> 3</span>client = <span class="fn">OpenAI</span>(base_url=<span class="st">"https://ai-gateway.vercel.sh/v1"</span>)
+<span class="ln"> 4</span>resp = client.responses.<span class="fn">create</span>(
+<span class="ln"> 5</span>  model=<span class="st">"openai/gpt-5.5"</span>,
+<span class="ln"> 6</span>  input=<span class="st">"Why is the sky blue?"</span>
+<span class="ln"> 7</span>)</code></pre>
+                <pre class="code-body is-hidden" data-pane="http"><code><span class="ln"> 1</span>curl https://ai-gateway.vercel.sh/v1/responses \
+<span class="ln"> 2</span>  -H <span class="st">"Authorization: Bearer $AI_GATEWAY_API_KEY"</span> \
+<span class="ln"> 3</span>  -d <span class="st">'{"model":"openai/gpt-5.5","input":"hi"}'</span></code></pre>
+              </div>
+
+              <div class="useit">
+                <span class="useit__label">Use it with</span>
+                <span class="useit__chip">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                  OpenAI
+                </span>
+                <span class="useit__chip">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2"/></svg>
+                  xAI
+                </span>
+                <span class="useit__chip">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20L12 4l8 16H4z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Anthropic
+                </span>
+                <a class="useit__more" href="#">and many more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOGO CLOUD -->
+      <section class="logos">
+        <div class="logos__row">
+          <span class="logo">browserbase</span>
+          <span class="logo logo--icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <span class="logo">
+            <svg viewBox="0 0 24 24" class="logo-mark" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor"/></svg>
+            cline
+          </span>
+          <span class="logo">
+            <svg viewBox="0 0 24 24" class="logo-mark" aria-hidden="true"><path d="M4 4h16v16H4z M4 4l16 16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            Zo
+          </span>
+          <span class="logo">opencode</span>
+          <span class="logo">
+            <svg viewBox="0 0 24 24" class="logo-mark" aria-hidden="true"><path d="M12 2c-3 6-6 9-10 11 4 2 7 5 10 9 3-4 6-7 10-9-4-2-7-5-10-11z" fill="currentColor"/></svg>
+            Browserbase
+          </span>
+          <span class="logo logo--icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </section>
+
+      <!-- ROUTING / FEATURES -->
+      <section class="features">
+        <div class="frame">
+          <div class="frame__corner frame__corner--tl"></div>
+          <div class="frame__corner frame__corner--tr"></div>
+          <div class="frame__corner frame__corner--bl"></div>
+          <div class="frame__corner frame__corner--br"></div>
+
+          <div class="features__intro">
+            <h2>Routing, billing, and observability in one place</h2>
+            <p>Use a single API key and dashboard to access models, track spend, and keep workloads resilient.</p>
+          </div>
+
+          <div class="features__grid">
+            <article class="feature-card">
+              <h3>One API key,<br />hundreds of models</h3>
+              <p>Unified billing and observability across your entire AI stack, with text, image, and video models.</p>
+              <div class="feature-card__viz" data-viz="hub">
+                <svg viewBox="0 0 320 160" aria-hidden="true">
+                  <path d="M50 80 C 100 30, 140 30, 160 80" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+                  <path d="M50 80 C 100 130, 140 130, 160 80" fill="none" stroke="#f97316" stroke-width="1.5"/>
+                  <path d="M160 80 L 270 50" stroke="#ef4444" stroke-width="1.5"/>
+                  <path d="M160 80 L 270 80" stroke="#a3a3a3" stroke-width="1.5" stroke-dasharray="3 3"/>
+                  <path d="M160 80 L 270 110" stroke="#a3a3a3" stroke-width="1.5" stroke-dasharray="3 3"/>
+                  <circle cx="50" cy="80" r="14" fill="white" stroke="#d4d4d4"/>
+                  <path d="M44 80l5-5 8 8" stroke="#000" stroke-width="1.6" fill="none"/>
+                  <circle cx="160" cy="80" r="18" fill="black"/>
+                  <path d="M160 70l8 14h-16z" fill="white"/>
+                  <circle cx="270" cy="50" r="12" fill="white" stroke="#d4d4d4"/>
+                  <text x="270" y="54" text-anchor="middle" font-size="10" font-family="system-ui" fill="#000">AI</text>
+                  <circle cx="270" cy="80" r="12" fill="white" stroke="#d4d4d4"/>
+                  <text x="270" y="84" text-anchor="middle" font-size="10" font-family="system-ui" fill="#000">xI</text>
+                  <circle cx="270" cy="110" r="12" fill="white" stroke="#d4d4d4"/>
+                  <text x="270" y="113" text-anchor="middle" font-size="9" font-family="system-ui" fill="#000">...</text>
+                </svg>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <h3>Built-in failovers,<br />better uptime</h3>
+              <p>Automatic fallbacks during provider outages so your app stays up even when a model goes down.</p>
+              <div class="feature-card__viz" data-viz="failover">
+                <svg viewBox="0 0 320 160" aria-hidden="true">
+                  <rect x="40" y="40" width="40" height="30" rx="4" fill="white" stroke="#d4d4d4"/>
+                  <rect x="140" y="40" width="40" height="30" rx="4" fill="white" stroke="#d4d4d4"/>
+                  <rect x="240" y="40" width="40" height="30" rx="4" fill="white" stroke="#d4d4d4"/>
+                  <path d="M60 70 C 80 100, 120 100, 160 110" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+                  <path d="M160 70 L 160 110" stroke="#ef4444" stroke-width="1.5"/>
+                  <path d="M260 70 C 240 100, 200 100, 160 110" stroke="#f97316" stroke-width="1.5" fill="none"/>
+                  <circle cx="160" cy="120" r="14" fill="black"/>
+                  <path d="M160 112l7 12h-14z" fill="white"/>
+                </svg>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <h3>No markup, just<br />list price</h3>
+              <p>Pay exactly what providers charge with no platform fees.</p>
+              <div class="feature-card__viz" data-viz="ring">
+                <svg viewBox="0 0 320 160" aria-hidden="true">
+                  <circle cx="160" cy="80" r="50" fill="none" stroke="#d4d4d4" stroke-width="1.5"/>
+                  <path d="M110 80 a50 50 0 0 1 50 -50" stroke="#3b82f6" stroke-width="2" fill="none"/>
+                  <path d="M160 30 a50 50 0 0 1 50 50" stroke="#ef4444" stroke-width="2" fill="none"/>
+                  <path d="M210 80 a50 50 0 0 1 -50 50" stroke="#10b981" stroke-width="2" fill="none"/>
+                  <path d="M160 130 a50 50 0 0 1 -50 -50" stroke="#f97316" stroke-width="2" fill="none"/>
+                  <circle cx="160" cy="80" r="16" fill="black"/>
+                  <path d="M160 72l7 12h-14z" fill="white"/>
+                </svg>
+              </div>
+            </article>
+          </div>
+
+          <!-- MODALITY SHOWCASE -->
+          <div class="modality">
+            <div class="modality__col">
+              <div class="modality__item">
+                <h3>Text</h3>
+                <p>Access the latest from every major model lab and provider. Power your AI features all through a single endpoint.</p>
+              </div>
+              <div class="modality__item modality__item--muted">
+                <h3>Image</h3>
+                <p>Generate and edit with best-in-class image models, no extra setup.</p>
+              </div>
+              <div class="modality__item modality__item--muted">
+                <h3>Video <span class="badge badge--new">New</span></h3>
+                <p>Ship production-ready video across a wide range of models with just a prompt.</p>
+              </div>
+            </div>
+
+            <div class="modality__preview">
+              <div class="bubble bubble--text">
+                <div class="bubble__avatar">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 12h10M7 8h10M7 16h7" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+                <div class="bubble__body">
+                  <p>Vercel is a cloud platform for deploying and hosting websites, apps, and serverless functions with speed, scalability, and simplicity. It gives teams one workflow from development to global delivery, so products ship faster while keeping reliability and performance high across every request. With robust developer tooling and seamless integrations, Vercel enables engineering teams to collaborate efficiently and manage code from preview to production.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GET STARTED -->
+      <section class="quickstart">
+        <div class="frame">
+          <div class="frame__corner frame__corner--tl"></div>
+          <div class="frame__corner frame__corner--tr"></div>
+          <div class="frame__corner frame__corner--bl"></div>
+          <div class="frame__corner frame__corner--br"></div>
+
+          <div class="quickstart__grid">
+            <aside class="quickstart__intro">
+              <h2>Get Started</h2>
+              <p>This quickstart walks you through making your first text generation request with AI Gateway.</p>
+              <a class="btn btn--ghost-outline" href="#">Read Quick Start</a>
+            </aside>
+
+            <div class="quickstart__steps">
+              <article class="step">
+                <header class="step__head">
+                  <span class="step__num">1</span>
+                  <div>
+                    <h3>Set Up Your Project</h3>
+                    <p>Create a new directory and initialize a Node.js project.</p>
+                  </div>
+                </header>
+                <div class="code-card code-card--inline">
+                  <div class="code-card__head code-card__head--mini">
+                    <span class="code-card__file"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12v8H2z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 7l2 2-2 2M8 11h4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg> Terminal</span>
+                    <button class="icon-btn" aria-label="Copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="3" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="5.5" y="5.5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+                  </div>
+                  <pre class="code-body code-body--plain"><code><span class="kw">mkdir</span> ai-text-demo
+<span class="kw">cd</span> ai-text-demo
+<span class="kw">pnpm</span> init</code></pre>
+                </div>
+              </article>
+
+              <article class="step">
+                <header class="step__head">
+                  <span class="step__num">2</span>
+                  <div>
+                    <h3>Install Dependencies</h3>
+                    <p>Install the AI SDK and development dependencies.</p>
+                  </div>
+                </header>
+                <div class="pm-tabs" role="tablist">
+                  <button class="pm-tab is-active" data-pm="npm">npm</button>
+                  <button class="pm-tab" data-pm="yarn">yarn</button>
+                  <button class="pm-tab" data-pm="pnpm">pnpm</button>
+                  <button class="pm-tab" data-pm="bun">bun</button>
+                </div>
+                <div class="code-card code-card--inline">
+                  <div class="code-card__head code-card__head--mini">
+                    <span class="code-card__file"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12v8H2z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 7l2 2-2 2M8 11h4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg> Terminal</span>
+                    <button class="icon-btn" aria-label="Copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="3" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="5.5" y="5.5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+                  </div>
+                  <pre class="code-body code-body--plain" data-pm-pane="npm"><code><span class="kw">npm</span> <span class="fn">install</span> ai dotenv @types/node tsx typescript</code></pre>
+                  <pre class="code-body code-body--plain is-hidden" data-pm-pane="yarn"><code><span class="kw">yarn</span> <span class="fn">add</span> ai dotenv @types/node tsx typescript</code></pre>
+                  <pre class="code-body code-body--plain is-hidden" data-pm-pane="pnpm"><code><span class="kw">pnpm</span> <span class="fn">add</span> ai dotenv @types/node tsx typescript</code></pre>
+                  <pre class="code-body code-body--plain is-hidden" data-pm-pane="bun"><code><span class="kw">bun</span> <span class="fn">add</span> ai dotenv @types/node tsx typescript</code></pre>
+                </div>
+              </article>
+
+              <article class="step">
+                <header class="step__head">
+                  <span class="step__num">3</span>
+                  <div>
+                    <h3>Set Up Your API Key</h3>
+                    <p>Go to the <a class="link" href="#">AI Gateway API Keys page</a> in your Vercel dashboard and click <strong>Create Key</strong> to generate a new API Key.</p>
+                  </div>
+                </header>
+                <p class="step__sub">Create a <code>.env.local</code> file and save your API Key.</p>
+                <div class="code-card code-card--inline">
+                  <div class="code-card__head code-card__head--mini">
+                    <span class="code-card__file"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12v8H2z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 7l2 2-2 2M8 11h4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg> .env.local</span>
+                    <button class="icon-btn" aria-label="Copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="3" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="5.5" y="5.5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+                  </div>
+                  <pre class="code-body code-body--plain"><code><span class="env">AI_GATEWAY_API_KEY</span>=your_ai_gateway_api_key</code></pre>
+                </div>
+                <div class="callout">
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 5v3.5M8 11v.1" stroke="currentColor" stroke-width="1.3"/></svg>
+                  Instead of using an API Key, you can use <a class="link" href="#">OIDC tokens</a> to authenticate your requests.
+                </div>
+              </article>
+
+              <article class="step">
+                <header class="step__head">
+                  <span class="step__num">4</span>
+                  <div>
+                    <h3>Create and Run Your Script</h3>
+                    <p>Create an <code>index.ts</code> file.</p>
+                  </div>
+                </header>
+                <div class="code-card code-card--inline">
+                  <div class="code-card__head code-card__head--mini">
+                    <span class="code-card__file"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2h7l3 3v9H3z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg> index.ts</span>
+                    <button class="icon-btn" aria-label="Copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="3" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="5.5" y="5.5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+                  </div>
+                  <pre class="code-body code-body--plain"><code><span class="kw">import</span> { streamText } <span class="kw">from</span> <span class="st">'ai'</span>;
+<span class="kw">import</span> <span class="st">'dotenv/config'</span>;
+
+<span class="kw">async function</span> <span class="fn">main</span>() {
+  <span class="kw">const</span> result = <span class="fn">streamText</span>({
+    model: <span class="st">'openai/gpt-5.5'</span>,
+    prompt: <span class="st">'Invent a new holiday and describe its traditions.'</span>,
+  });
+
+  <span class="kw">for await</span> (<span class="kw">const</span> textPart <span class="kw">of</span> result.textStream) {
+    process.stdout.<span class="fn">write</span>(textPart);
+  }
+
+  console.<span class="fn">log</span>();
+  console.<span class="fn">log</span>(<span class="st">'Token usage:'</span>, <span class="kw">await</span> result.usage);
+  console.<span class="fn">log</span>(<span class="st">'Finish reason:'</span>, <span class="kw">await</span> result.finishReason);
+}
+
+<span class="fn">main</span>().<span class="fn">catch</span>(console.error);</code></pre>
+                </div>
+
+                <p class="step__sub">Run your script.</p>
+                <div class="code-card code-card--inline">
+                  <div class="code-card__head code-card__head--mini">
+                    <span class="code-card__file"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12v8H2z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 7l2 2-2 2M8 11h4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg> Terminal</span>
+                    <button class="icon-btn" aria-label="Copy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="3" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="5.5" y="5.5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+                  </div>
+                  <pre class="code-body code-body--plain"><code><span class="kw">pnpm</span> tsx index.ts</code></pre>
+                </div>
+              </article>
+
+              <article class="step">
+                <header class="step__head">
+                  <span class="step__num">5</span>
+                  <div>
+                    <h3>Next Steps</h3>
+                  </div>
+                </header>
+                <ul class="step__list">
+                  <li>Learn about <a class="link" href="#">provider and model routing with fallbacks</a>.</li>
+                  <li>Explore the <a class="link" href="#">AI SDK documentation</a> for more configuration options.</li>
+                  <li>Try <a class="link" href="#">OpenAI Chat Completions</a>, <a class="link" href="#">OpenAI Responses</a>, <a class="link" href="#">Anthropic Messages</a>, or <a class="link" href="#">OpenResponses</a>.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq">
+        <div class="frame">
+          <div class="frame__corner frame__corner--tl"></div>
+          <div class="frame__corner frame__corner--tr"></div>
+          <div class="frame__corner frame__corner--bl"></div>
+          <div class="frame__corner frame__corner--br"></div>
+
+          <div class="faq__grid">
+            <h2 class="faq__title">Frequently<br />Asked Questions</h2>
+            <div class="faq__list">
+              <details class="faq-item">
+                <summary>Can I try the Gateway for free?<span class="chev">⌄</span></summary>
+                <div class="faq-item__body">Yes. AI Gateway includes a generous free tier so you can try it out before adding payment.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How is the Gateway priced?<span class="chev">⌄</span></summary>
+                <div class="faq-item__body">You pay exactly what providers charge—no platform markup. Spend rolls into your Vercel invoice.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Do you have any rate limits?<span class="chev">⌄</span></summary>
+                <div class="faq-item__body">Free accounts have moderate rate limits; Pro and Enterprise have substantially higher limits.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What models do you support?<span class="chev">⌄</span></summary>
+                <div class="faq-item__body">Hundreds of text, image, and video models from major providers including OpenAI, Anthropic, xAI, Google, and more.</div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPLOY CTA -->
+      <section class="deploy">
+        <div class="frame">
+          <div class="frame__corner frame__corner--tl"></div>
+          <div class="frame__corner frame__corner--tr"></div>
+          <div class="frame__corner frame__corner--bl"></div>
+          <div class="frame__corner frame__corner--br"></div>
+
+          <div class="deploy__grid">
+            <div class="deploy__main">
+              <h3><strong>Ready to deploy?</strong> Start building with a free account. Speak to an expert for your <a class="link link--blue" href="#">Pro</a> or <a class="link link--purple" href="#">Enterprise</a> needs.</h3>
+              <div class="deploy__cta">
+                <a class="btn btn--primary" href="#">Create an API Key</a>
+                <a class="btn btn--ghost-outline" href="#">Talk to an Expert</a>
+              </div>
+            </div>
+            <div class="deploy__side">
+              <p><strong>Trial Vercel</strong> with higher execution, increased app bandwidth, Speed Insights, team features, and more.</p>
+              <a class="btn btn--ghost-outline" href="#">Request a Trial</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__cols">
+          <div class="fcol">
+            <h4>Get Started</h4>
+            <ul>
+              <li><a href="#">Templates</a></li>
+              <li><a href="#">Supported frameworks</a></li>
+              <li><a href="#">Marketplace</a></li>
+              <li><a href="#">Domains</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Build</h4>
+            <ul>
+              <li><a href="#">Next.js on Vercel</a></li>
+              <li><a href="#">Turborepo</a></li>
+              <li><a href="#">v0</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Scale</h4>
+            <ul>
+              <li><a href="#">Content delivery network</a></li>
+              <li><a href="#">Fluid compute</a></li>
+              <li><a href="#">CI/CD</a></li>
+              <li><a href="#">Observability</a></li>
+              <li><a href="#">AI Gateway <span class="tag">NEW</span></a></li>
+              <li><a href="#">Vercel Agent <span class="tag">NEW</span></a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Secure</h4>
+            <ul>
+              <li><a href="#">Platform security</a></li>
+              <li><a href="#">Web Application Firewall</a></li>
+              <li><a href="#">Bot management</a></li>
+              <li><a href="#">BotID <span class="tag">NEW</span></a></li>
+              <li><a href="#">Sandbox <span class="tag">NEW</span></a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Customers</a></li>
+              <li><a href="#">Enterprise</a></li>
+              <li><a href="#">Articles</a></li>
+              <li><a href="#">Startups</a></li>
+              <li><a href="#">Solution partners</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Learn</h4>
+            <ul>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Changelog</a></li>
+              <li><a href="#">Knowledge Base</a></li>
+              <li><a href="#">Academy</a></li>
+              <li><a href="#">Community</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__cols site-footer__cols--two">
+          <div class="fcol">
+            <h4>Frameworks</h4>
+            <ul>
+              <li><a href="#">Next.js</a></li>
+              <li><a href="#">Nuxt</a></li>
+              <li><a href="#">Svelte</a></li>
+              <li><a href="#">Nitro</a></li>
+              <li><a href="#">Turbo</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>SDKs</h4>
+            <ul>
+              <li><a href="#">AI SDK</a></li>
+              <li><a href="#">Workflow SDK <span class="tag">NEW</span></a></li>
+              <li><a href="#">Flags SDK</a></li>
+              <li><a href="#">Chat SDK</a></li>
+              <li><a href="#">Streamdown AI <span class="tag">NEW</span></a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Use Cases</h4>
+            <ul>
+              <li><a href="#">Composable commerce</a></li>
+              <li><a href="#">Multi-tenant platforms</a></li>
+              <li><a href="#">Web apps</a></li>
+              <li><a href="#">Marketing sites</a></li>
+              <li><a href="#">Platform engineers</a></li>
+              <li><a href="#">Design engineers</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Legal</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="#">Open source program</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Shipped on Vercel</a></li>
+              <li><a href="#"><svg viewBox="0 0 24 24" class="ic" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.06.78 2.14v3.18c0 .31.21.68.8.56 4.57-1.52 7.86-5.83 7.86-10.91C23.5 5.65 18.35.5 12 .5z"/></svg> GitHub</a></li>
+              <li><a href="#"><svg viewBox="0 0 24 24" class="ic" aria-hidden="true"><path fill="currentColor" d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8.34 17H5.67V9.83h2.67V17zM7 8.66c-.86 0-1.55-.7-1.55-1.55S6.14 5.55 7 5.55s1.55.7 1.55 1.55S7.86 8.66 7 8.66zM18 17h-2.67v-3.86c0-.93-.02-2.13-1.3-2.13s-1.5 1.02-1.5 2.07V17H9.86V9.83h2.56v.98h.04c.36-.68 1.23-1.4 2.54-1.4 2.72 0 3.22 1.79 3.22 4.12V17z"/></svg> LinkedIn</a></li>
+              <li><a href="#"><svg viewBox="0 0 24 24" class="ic" aria-hidden="true"><path fill="currentColor" d="M18.244 2H21l-6.49 7.42L22 22h-6.953l-4.5-6.04L5.13 22H2.373l6.97-7.97L2 2h7.094l4.07 5.48L18.244 2zm-2.43 18h1.62L7.27 4H5.55l10.264 16z"/></svg> X</a></li>
+              <li><a href="#"><svg viewBox="0 0 24 24" class="ic" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6c-1 .3-1.8 1.1-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1.1 1.8 2.1 2.1 1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg> YouTube</a></li>
+            </ul>
+          </div>
+          <div class="fcol fcol--triangle">
+            <svg viewBox="0 0 80 70" aria-hidden="true"><path d="M40 5L75 65H5L40 5Z" fill="currentColor"/></svg>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <div class="status">
+            <span class="status__dot"></span>
+            ALL SYSTEMS NORMAL
+          </div>
+          <div class="site-footer__icons">
+            <button aria-label="Issue"><svg viewBox="0 0 16 16"><rect x="3" y="3" width="10" height="10" rx="1" fill="none" stroke="currentColor"/></svg></button>
+            <button aria-label="Theme"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5" fill="none" stroke="currentColor"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2" stroke="currentColor"/></svg></button>
+            <button aria-label="Refresh"><svg viewBox="0 0 16 16"><path d="M3 8a5 5 0 0 1 9-3M13 8a5 5 0 0 1-9 3M11 4v3h3M5 12V9H2" fill="none" stroke="currentColor"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
